@@ -1,10 +1,11 @@
-﻿I done some tests,
-On the bases this test, I removed some folders/files to check whether it usefull or not,
-So I was able to reduce libvlc from 320 MB to 76.6 MB (17 MB compressed size),
-And also my app working fine and properly,
-So I made batch script clean.bat which will copy specifc libvlc files and and put them to libvlc_clean dir, 
-This is scripting implementation,
-I saw that only these dirs useful for my app,
+As <b>libvlc</b> files are 300 MB so I wanted to reduce so that I can share it easily,<br>
+Below are some tests,<br>
+On the basis of this test, I removed some folders/files to check whether it usefull or not,<br>
+So I was able to reduce libvlc from <b>320 MB to 76.6 MB</b> (17 MB compressed size),<br>
+And also my app working fine and properly,<br>
+So I made batch script <b>clean.bat</b> which will copy specifc libvlc files and and put them to libvlc_clean dir, <br>
+This is scripting implementation,<br>
+I saw that only these dirs useful for my app,<br>
 ```
 C:\Users\Administrator\Desktop\Player>tree
 Folder PATH listing
@@ -33,7 +34,7 @@ C:.
 
 C:\Users\Administrator\Desktop\Player>
 ```
-And also my app was working fine with these files:
+<br>And also my app was working fine with these files:<br>
 ```
 libvlc\win-x64
 libvlc\win-x86
@@ -236,6 +237,6 @@ libvlc\win-x86\plugins\video_output\libwingdi_plugin.dll
 libvlc\win-x86\plugins\video_output\libwinhibit_plugin.dll
 libvlc\win-x86\plugins\video_output\libyuv_plugin.dll
 ```
-But I don't think my app will be same like your app,
-So no gurrantee it will work for you,
-It is in testing phase, Only original libvlc developers can tell better.Thanks.
+<br>But I don't think my app will be same like your app,<br>
+So no gurrantee it will work for you,<br>
+It is in testing phase, Only original libvlc developers can tell better.Thanks.<br>
