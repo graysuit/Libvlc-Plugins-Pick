@@ -1,0 +1,241 @@
+﻿I done some tests,
+On the bases this test, I removed some folders/files to check whether it usefull or not,
+So I was able to reduce libvlc from 320 MB to 76.6 MB (17 MB compressed size),
+And also my app working fine and properly,
+So I made batch script clean.bat which will copy specifc libvlc files and and put them to libvlc_clean dir, 
+This is scripting implementation,
+I saw that only these dirs useful for my app,
+```
+C:\Users\Administrator\Desktop\Player>tree
+Folder PATH listing
+Volume serial number is ******** ****:****
+C:.
+│
+└───libvlc
+    ├───win-x64
+    │   ├───hrtfs
+    │   └───plugins
+    │       ├───access
+    │       ├───audio_output
+    │       ├───demux
+    │       ├───text_renderer
+    │       └───video_output
+    └───win-x86
+        ├───hrtfs
+        └───plugins
+            ├───access
+            ├───audio_output
+            ├───codec
+            ├───demux
+            ├───spu
+            ├───text_renderer
+            └───video_output
+
+C:\Users\Administrator\Desktop\Player>
+```
+And also my app was working fine with these files:
+```
+libvlc\win-x64
+libvlc\win-x86
+libvlc\list.txt
+libvlc\win-x64\hrtfs
+libvlc\win-x64\plugins
+libvlc\win-x64\libvlc.dll
+libvlc\win-x64\libvlccore.dll
+libvlc\win-x64\hrtfs\dodeca_and_7channel_3DSL_HRTF.sofa
+libvlc\win-x64\plugins\access
+libvlc\win-x64\plugins\audio_output
+libvlc\win-x64\plugins\demux
+libvlc\win-x64\plugins\text_renderer
+libvlc\win-x64\plugins\video_output
+libvlc\win-x86\hrtfs
+libvlc\win-x86\plugins
+libvlc\win-x86\libvlc.dll
+libvlc\win-x86\libvlccore.dll
+libvlc\win-x86\hrtfs\dodeca_and_7channel_3DSL_HRTF.sofa
+libvlc\win-x86\plugins\access
+libvlc\win-x86\plugins\audio_output
+libvlc\win-x86\plugins\codec
+libvlc\win-x86\plugins\demux
+libvlc\win-x86\plugins\spu
+libvlc\win-x86\plugins\text_renderer
+libvlc\win-x86\plugins\video_output
+libvlc\win-x86\plugins\access\libaccess_concat_plugin.dll
+libvlc\win-x86\plugins\access\libaccess_imem_plugin.dll
+libvlc\win-x86\plugins\access\libaccess_mms_plugin.dll
+libvlc\win-x86\plugins\access\libaccess_realrtsp_plugin.dll
+libvlc\win-x86\plugins\access\libaccess_srt_plugin.dll
+libvlc\win-x86\plugins\access\libaccess_wasapi_plugin.dll
+libvlc\win-x86\plugins\access\libattachment_plugin.dll
+libvlc\win-x86\plugins\access\libbluray-awt-j2se-1.2.0.jar
+libvlc\win-x86\plugins\access\libbluray-j2se-1.2.0.jar
+libvlc\win-x86\plugins\access\libcdda_plugin.dll
+libvlc\win-x86\plugins\access\libdcp_plugin.dll
+libvlc\win-x86\plugins\access\libdshow_plugin.dll
+libvlc\win-x86\plugins\access\libdtv_plugin.dll
+libvlc\win-x86\plugins\access\libdvdnav_plugin.dll
+libvlc\win-x86\plugins\access\libdvdread_plugin.dll
+libvlc\win-x86\plugins\access\libfilesystem_plugin.dll
+libvlc\win-x86\plugins\access\libftp_plugin.dll
+libvlc\win-x86\plugins\access\libhttp_plugin.dll
+libvlc\win-x86\plugins\access\libhttps_plugin.dll
+libvlc\win-x86\plugins\access\libidummy_plugin.dll
+libvlc\win-x86\plugins\access\libimem_plugin.dll
+libvlc\win-x86\plugins\access\liblibbluray_plugin.dll
+libvlc\win-x86\plugins\access\liblive555_plugin.dll
+libvlc\win-x86\plugins\access\libnfs_plugin.dll
+libvlc\win-x86\plugins\access\librtp_plugin.dll
+libvlc\win-x86\plugins\access\libsatip_plugin.dll
+libvlc\win-x86\plugins\access\libscreen_plugin.dll
+libvlc\win-x86\plugins\access\libsdp_plugin.dll
+libvlc\win-x86\plugins\access\libsftp_plugin.dll
+libvlc\win-x86\plugins\access\libshm_plugin.dll
+libvlc\win-x86\plugins\access\libsmb_plugin.dll
+libvlc\win-x86\plugins\access\libtcp_plugin.dll
+libvlc\win-x86\plugins\access\libtimecode_plugin.dll
+libvlc\win-x86\plugins\access\libudp_plugin.dll
+libvlc\win-x86\plugins\access\libvcd_plugin.dll
+libvlc\win-x86\plugins\access\libvdr_plugin.dll
+libvlc\win-x86\plugins\access\libvnc_plugin.dll
+libvlc\win-x86\plugins\audio_output\libadummy_plugin.dll
+libvlc\win-x86\plugins\audio_output\libafile_plugin.dll
+libvlc\win-x86\plugins\audio_output\libamem_plugin.dll
+libvlc\win-x86\plugins\audio_output\libdirectsound_plugin.dll
+libvlc\win-x86\plugins\audio_output\libmmdevice_plugin.dll
+libvlc\win-x86\plugins\audio_output\libwasapi_plugin.dll
+libvlc\win-x86\plugins\audio_output\libwaveout_plugin.dll
+libvlc\win-x86\plugins\codec\liba52_plugin.dll
+libvlc\win-x86\plugins\codec\libadpcm_plugin.dll
+libvlc\win-x86\plugins\codec\libaes3_plugin.dll
+libvlc\win-x86\plugins\codec\libaom_plugin.dll
+libvlc\win-x86\plugins\codec\libaraw_plugin.dll
+libvlc\win-x86\plugins\codec\libaribsub_plugin.dll
+libvlc\win-x86\plugins\codec\libavcodec_plugin.dll
+libvlc\win-x86\plugins\codec\libcc_plugin.dll
+libvlc\win-x86\plugins\codec\libcdg_plugin.dll
+libvlc\win-x86\plugins\codec\libcrystalhd_plugin.dll
+libvlc\win-x86\plugins\codec\libcvdsub_plugin.dll
+libvlc\win-x86\plugins\codec\libd3d11va_plugin.dll
+libvlc\win-x86\plugins\codec\libdav1d_plugin.dll
+libvlc\win-x86\plugins\codec\libdca_plugin.dll
+libvlc\win-x86\plugins\codec\libddummy_plugin.dll
+libvlc\win-x86\plugins\codec\libdmo_plugin.dll
+libvlc\win-x86\plugins\codec\libdvbsub_plugin.dll
+libvlc\win-x86\plugins\codec\libdxva2_plugin.dll
+libvlc\win-x86\plugins\codec\libedummy_plugin.dll
+libvlc\win-x86\plugins\codec\libfaad_plugin.dll
+libvlc\win-x86\plugins\codec\libflac_plugin.dll
+libvlc\win-x86\plugins\codec\libfluidsynth_plugin.dll
+libvlc\win-x86\plugins\codec\libg711_plugin.dll
+libvlc\win-x86\plugins\codec\libjpeg_plugin.dll
+libvlc\win-x86\plugins\codec\libkate_plugin.dll
+libvlc\win-x86\plugins\codec\liblibass_plugin.dll
+libvlc\win-x86\plugins\codec\liblibmpeg2_plugin.dll
+libvlc\win-x86\plugins\codec\liblpcm_plugin.dll
+libvlc\win-x86\plugins\codec\libmft_plugin.dll
+libvlc\win-x86\plugins\codec\libmpg123_plugin.dll
+libvlc\win-x86\plugins\codec\liboggspots_plugin.dll
+libvlc\win-x86\plugins\codec\libopus_plugin.dll
+libvlc\win-x86\plugins\codec\libpng_plugin.dll
+libvlc\win-x86\plugins\codec\libqsv_plugin.dll
+libvlc\win-x86\plugins\codec\librawvideo_plugin.dll
+libvlc\win-x86\plugins\codec\librtpvideo_plugin.dll
+libvlc\win-x86\plugins\codec\libschroedinger_plugin.dll
+libvlc\win-x86\plugins\codec\libscte18_plugin.dll
+libvlc\win-x86\plugins\codec\libscte27_plugin.dll
+libvlc\win-x86\plugins\codec\libsdl_image_plugin.dll
+libvlc\win-x86\plugins\codec\libspdif_plugin.dll
+libvlc\win-x86\plugins\codec\libspeex_plugin.dll
+libvlc\win-x86\plugins\codec\libspudec_plugin.dll
+libvlc\win-x86\plugins\codec\libstl_plugin.dll
+libvlc\win-x86\plugins\codec\libsubsdec_plugin.dll
+libvlc\win-x86\plugins\codec\libsubstx3g_plugin.dll
+libvlc\win-x86\plugins\codec\libsubsusf_plugin.dll
+libvlc\win-x86\plugins\codec\libsvcdsub_plugin.dll
+libvlc\win-x86\plugins\codec\libt140_plugin.dll
+libvlc\win-x86\plugins\codec\libtextst_plugin.dll
+libvlc\win-x86\plugins\codec\libtheora_plugin.dll
+libvlc\win-x86\plugins\codec\libttml_plugin.dll
+libvlc\win-x86\plugins\codec\libtwolame_plugin.dll
+libvlc\win-x86\plugins\codec\libuleaddvaudio_plugin.dll
+libvlc\win-x86\plugins\codec\libvorbis_plugin.dll
+libvlc\win-x86\plugins\codec\libvpx_plugin.dll
+libvlc\win-x86\plugins\codec\libwebvtt_plugin.dll
+libvlc\win-x86\plugins\codec\libx264_plugin.dll
+libvlc\win-x86\plugins\codec\libx26410b_plugin.dll
+libvlc\win-x86\plugins\codec\libx265_plugin.dll
+libvlc\win-x86\plugins\codec\libzvbi_plugin.dll
+libvlc\win-x86\plugins\demux\libadaptive_plugin.dll
+libvlc\win-x86\plugins\demux\libaiff_plugin.dll
+libvlc\win-x86\plugins\demux\libasf_plugin.dll
+libvlc\win-x86\plugins\demux\libau_plugin.dll
+libvlc\win-x86\plugins\demux\libavi_plugin.dll
+libvlc\win-x86\plugins\demux\libcaf_plugin.dll
+libvlc\win-x86\plugins\demux\libdemux_cdg_plugin.dll
+libvlc\win-x86\plugins\demux\libdemux_chromecast_plugin.dll
+libvlc\win-x86\plugins\demux\libdemux_stl_plugin.dll
+libvlc\win-x86\plugins\demux\libdemuxdump_plugin.dll
+libvlc\win-x86\plugins\demux\libdiracsys_plugin.dll
+libvlc\win-x86\plugins\demux\libdirectory_demux_plugin.dll
+libvlc\win-x86\plugins\demux\libes_plugin.dll
+libvlc\win-x86\plugins\demux\libflacsys_plugin.dll
+libvlc\win-x86\plugins\demux\libgme_plugin.dll
+libvlc\win-x86\plugins\demux\libh26x_plugin.dll
+libvlc\win-x86\plugins\demux\libimage_plugin.dll
+libvlc\win-x86\plugins\demux\libmjpeg_plugin.dll
+libvlc\win-x86\plugins\demux\libmkv_plugin.dll
+libvlc\win-x86\plugins\demux\libmod_plugin.dll
+libvlc\win-x86\plugins\demux\libmp4_plugin.dll
+libvlc\win-x86\plugins\demux\libmpc_plugin.dll
+libvlc\win-x86\plugins\demux\libmpgv_plugin.dll
+libvlc\win-x86\plugins\demux\libnoseek_plugin.dll
+libvlc\win-x86\plugins\demux\libnsc_plugin.dll
+libvlc\win-x86\plugins\demux\libnsv_plugin.dll
+libvlc\win-x86\plugins\demux\libnuv_plugin.dll
+libvlc\win-x86\plugins\demux\libogg_plugin.dll
+libvlc\win-x86\plugins\demux\libplaylist_plugin.dll
+libvlc\win-x86\plugins\demux\libps_plugin.dll
+libvlc\win-x86\plugins\demux\libpva_plugin.dll
+libvlc\win-x86\plugins\demux\librawaud_plugin.dll
+libvlc\win-x86\plugins\demux\librawdv_plugin.dll
+libvlc\win-x86\plugins\demux\librawvid_plugin.dll
+libvlc\win-x86\plugins\demux\libreal_plugin.dll
+libvlc\win-x86\plugins\demux\libsid_plugin.dll
+libvlc\win-x86\plugins\demux\libsmf_plugin.dll
+libvlc\win-x86\plugins\demux\libsubtitle_plugin.dll
+libvlc\win-x86\plugins\demux\libts_plugin.dll
+libvlc\win-x86\plugins\demux\libtta_plugin.dll
+libvlc\win-x86\plugins\demux\libty_plugin.dll
+libvlc\win-x86\plugins\demux\libvc1_plugin.dll
+libvlc\win-x86\plugins\demux\libvobsub_plugin.dll
+libvlc\win-x86\plugins\demux\libvoc_plugin.dll
+libvlc\win-x86\plugins\demux\libwav_plugin.dll
+libvlc\win-x86\plugins\demux\libxa_plugin.dll
+libvlc\win-x86\plugins\spu\libaudiobargraph_v_plugin.dll
+libvlc\win-x86\plugins\spu\liblogo_plugin.dll
+libvlc\win-x86\plugins\spu\libmarq_plugin.dll
+libvlc\win-x86\plugins\spu\libmosaic_plugin.dll
+libvlc\win-x86\plugins\spu\libremoteosd_plugin.dll
+libvlc\win-x86\plugins\spu\librss_plugin.dll
+libvlc\win-x86\plugins\spu\libsubsdelay_plugin.dll
+libvlc\win-x86\plugins\text_renderer\libfreetype_plugin.dll
+libvlc\win-x86\plugins\text_renderer\libsapi_plugin.dll
+libvlc\win-x86\plugins\text_renderer\libtdummy_plugin.dll
+libvlc\win-x86\plugins\video_output\libcaca_plugin.dll
+libvlc\win-x86\plugins\video_output\libdirect3d11_plugin.dll
+libvlc\win-x86\plugins\video_output\libdirect3d9_plugin.dll
+libvlc\win-x86\plugins\video_output\libdirectdraw_plugin.dll
+libvlc\win-x86\plugins\video_output\libdrawable_plugin.dll
+libvlc\win-x86\plugins\video_output\libflaschen_plugin.dll
+libvlc\win-x86\plugins\video_output\libgl_plugin.dll
+libvlc\win-x86\plugins\video_output\libglwin32_plugin.dll
+libvlc\win-x86\plugins\video_output\libvdummy_plugin.dll
+libvlc\win-x86\plugins\video_output\libvmem_plugin.dll
+libvlc\win-x86\plugins\video_output\libwgl_plugin.dll
+libvlc\win-x86\plugins\video_output\libwingdi_plugin.dll
+libvlc\win-x86\plugins\video_output\libwinhibit_plugin.dll
+libvlc\win-x86\plugins\video_output\libyuv_plugin.dll
+```
+But I don't think my app will be same like your app,
+So no gurrantee it will work for you,
+It is in testing phase, Only original libvlc developers can tell better.Thanks.
